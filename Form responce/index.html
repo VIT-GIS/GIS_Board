@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Enrollment Data</title>
+  <link rel="icon" href="../assets/logo.jpeg.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="../Form responce/styles.css">
+  <script type="module" src="../Form responce/scripts.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <img src="../assets/logo.jpeg.jpg" alt="Company Logo" class="logo">
+    <h1>GeoSpatial Club Enrollment</h1>
+    
+    <button class="menu-btn" id="menu-btn">Menu</button>
+    <div class="download-container">
+      <button id="downloadExcel" class="download-button">Download Excel</button>
+    </div>
+    
+  </header>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">&times;</button>
+    <ul>
+      <li><a href="../dashboard/index.html">Dashboard Page</a></li>
+      <li><a href="../Form responce/index.html">Enrollment Club Form - Responce</a></li>
+       <li><a href="../notice/index.html">Post Notice</a></li>
+       <li><a href="../Registered VITians/index.html">VITian Info</a></li>
+       <li><a href="../VITian location/index.html">VITian Location</a></li>
+    </ul>
+  </nav>
+
+
+  <main class="container">
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search by Registration Number">
+    </div>
+    <table id="enrollmentTable" class="responsive-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Registration No.</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Preference 1</th>
+          <th>Preference 2</th>
+          <th>Submitted At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- Data rows will be inserted dynamically here -->
+      </tbody>
+    </table>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 EasyCab. All rights reserved.</p>
+  </footer>
+
+  <!-- Edit Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Edit Enrollment</h2>
+      <form id="editForm">
+        <label for="editName">Name:</label>
+        <input type="text" id="editName" required>
+        
+        <label for="editRegNumber">Registration No.:</label>
+        <input type="text" id="editRegNumber" required>
+
+        <label for="editEmail">Email:</label>
+        <input type="email" id="editEmail" required>
+
+        <label for="editPhone">Phone:</label>
+        <input type="text" id="editPhone" required>
+
+        <label for="editPreference1">Preference 1:</label>
+        <input type="text" id="editPreference1" required>
+
+        <label for="editPreference2">Preference 2:</label>
+        <input type="text" id="editPreference2" required>
+
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    // Mobile menu and filter functionality
+    document.getElementById('menu-btn').onclick = function () {
+        document.getElementById('sidebar').classList.toggle('active');
+    };
+
+    document.getElementById('close-btn').onclick = function () {
+        document.getElementById('sidebar').classList.remove('active');
+    };
+</script>
+</body>
+</html>

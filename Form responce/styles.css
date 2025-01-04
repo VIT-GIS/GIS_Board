@@ -1,0 +1,264 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #0b0d17;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: #1e1f29;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* Space between logo/title and buttons */
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+  
+  header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  header h1 {
+    font-size: 24px;
+    flex-grow: 1; /* Ensures the title takes up space between the logo and buttons */
+}
+
+/* Button Group in Header */
+.header-btns {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+  
+  main {
+    flex: 1;
+    padding: 20px;
+    background: url('space-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: auto;
+  }
+  
+  .search-container {
+    margin-bottom: 20px;
+  }
+  
+  .search-container input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  .download-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .download-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .download-button:hover {
+    background-color: #218838;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  thead th {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  tbody td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  footer {
+    background-color: #1e1f29;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #aaa;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 20px;
+    }
+  
+    .search-container input {
+      font-size: 14px;
+    }
+  
+    table thead th, table tbody td {
+      font-size: 14px;
+    }
+  
+    .download-button {
+      width: 100%;
+      max-width: 300px;
+      font-size: 14px;
+    }
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100%;
+    background-color: #000000;
+    padding-top: 60px;
+    color: #e0e0e0;
+    transition: left 0.4s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .sidebar.active {
+    left: 0;
+  }
+  
+  .sidebar .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    cursor: pointer;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 12px 25px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar ul li:hover {
+    background-color: #41464b;
+  }
+  
+  .sidebar ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1em;
+  }
+  
+  /* Button Styles */
+  button {
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+  }
+  
+  .logout-button {
+    background-color: #ff4c4c;
+    color: #fff;
+  }
+  
+  .logout-button:hover {
+    background-color: #ff1f1f;
+  }
+  
+  .menu-btn {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .menu-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 20px;
+  }
+  
+  .modal-content form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .modal-content form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .modal-content form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .modal-content form button:hover {
+    background-color: #218838;
+  }
+  

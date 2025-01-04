@@ -1,0 +1,424 @@
+/* General reset and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the body takes full height */
+}
+
+/* Spinner */
+.spinner {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255); /* White background with some transparency */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    flex-direction: column; /* Stack video and text vertically */
+    text-align: center; /* Center text */
+}
+
+.spinner video {
+    width: 280px; /* Adjust video size as needed */
+    margin-bottom: 20px; /* Add some space between the video and text */
+}
+
+.loading-text {
+    font-size: 1.2rem;
+    color: #333; /* Text color */
+    margin-top: 10px; /* Optional: Adjust spacing between text and video */
+}
+
+
+/* Header */
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; /* Added padding for better responsiveness */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Added gap for better spacing */
+}
+
+.logo-img {
+    width: 60px;
+    height: auto;
+}
+
+.company-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    white-space: nowrap; /* Prevents wrapping for small screens */
+}
+
+.menu-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block; /* Always visible */
+    border-radius: 5px;
+}
+
+.menu-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100%;
+    background-color: #000000;
+    padding-top: 60px;
+    color: #e0e0e0;
+    transition: left 0.4s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    cursor: pointer;
+}
+
+.sidebar .close-btn:hover {
+    color: #ff6666;
+}
+
+.sidebar h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 12px 25px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    background-color: #41464b;
+}
+
+.sidebar ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar ul li a:hover {
+    color: #ffffff;
+}
+
+/* General Menu Button Style */
+.menu-btn {
+    background-color: #ffffff; /* White background */
+    color: #007bff; /* Blue text */
+    border: 2px solid #007bff; /* Blue border */
+    border-radius: 5px;
+    padding: 10px 15px; /* Match padding of logout button */
+    font-size: 12.5px; /* Match font size of logout button */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    text-align: center;
+    display: inline-block;
+    width: auto;
+    box-sizing: border-box; /* Ensures padding doesn't affect the button size */
+}
+
+/* Hover effect */
+.menu-btn:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: #ffffff; /* White text on hover */
+    border-color: #0056b3; /* Darker blue border on hover */
+}
+
+/* Focus effect (optional for accessibility) */
+.menu-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Blue focus ring */
+}
+
+/* Active state */
+.menu-btn:active {
+    background-color: #0056b3; /* Darker blue when clicked */
+    border-color: #003366; /* Even darker border on active */
+}
+
+/* Mobile View - Adjustments for consistency */
+@media (max-width: 768px) {
+    .menu-btn {
+        font-size: 12.5px; /* Match font size for tablet */
+        padding: 10px 15px; /* Match padding */
+    }
+}
+
+/* Mobile Devices and Small Screens */
+@media (max-width: 480px) {
+    .menu-btn {
+        font-size: 12.5px; /* Match font size for mobile */
+        padding: 10px 15px; /* Match padding */
+    }
+}
+
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 120px auto 80px auto; /* Adjusted for header's fixed position */
+    padding: 20px;
+    overflow-y: auto; /* Enables scrolling */
+    flex-grow: 1; /* Makes the main content grow to fill remaining space */
+}
+
+form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+form h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+#noticesContainer {
+    margin-top: 2rem;
+}
+
+.notice-item {
+    background-color: #fff;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.notice-item h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.notice-item .meta {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.notice-item p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.notice-item .actions button {
+    background-color: #ff4747;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.notice-item .actions button:nth-child(1) {
+    background-color: #00aaff;
+}
+
+/* Footer */
+footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto; /* Makes sure footer stays at the bottom */
+    width: 100%;
+}
+
+footer .social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .social-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .company-name {
+        font-size: 1rem;
+    }
+}
+
+    .menu-btn {
+        display: block;
+    }
+
+    .sidebar {
+        left: -100%;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    form {
+        padding: 1rem;
+    }
+
+    #noticeForm input,
+    #noticeForm textarea,
+    #noticeForm button {
+        padding: 0.8rem;
+    }
+
+    .notice-item {
+        padding: 1rem;
+    }
+
+@media screen and (max-width: 480px) {
+    .header-container {
+        display: flex;
+        flex-direction: row; /* Align items in a single row */
+        justify-content: space-between; /* Space out the logo, name, and menu button */
+        align-items: center; /* Vertically align all items */
+        gap: 10px; /* Optional: space between elements */
+        width: 100%; /* Ensure it spans the full header */
+    }
+    
+    .logo-img {
+        width: 60px; /* Smaller logo for mobile screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+    
+    .company-name {
+        font-size: 0.9rem; /* Adjusted font size for smaller screens */
+        font-weight: bold; /* Bold text for emphasis */
+        margin-left: 10px; /* Space between logo and name */
+        color: #ffffff; /* Match text color with the header */
+    }
+    
+    .menu-btn {
+        font-size: 0.9rem; /* Adjust font size */
+        padding: 0.6rem 1rem; /* Adjust padding for smaller screens */
+        background-color: #ffffff; /* Button background */
+        color: #007bff; /* Button text color */
+        border: 2px solid #007bff; /* Button border */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor */
+        transition: all 0.3s ease; /* Smooth hover effect */
+    }
+    
+    .menu-btn:hover {
+        background-color: #007bff;
+        color: #ffffff;
+    }
+}
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    .notice-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .notice-item .meta {
+        font-size: 0.9rem;
+    }
+
+    .notice-item p {
+        font-size: 1rem;
+    }

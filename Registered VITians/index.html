@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITians Information</title>
+    <link rel="stylesheet" href="../Registered VITians/styles.css">
+</head>
+
+<body>
+    <header>
+        <img src="../assets/logo.jpeg.jpg" alt="Logo">
+        <h1>VITians Information</h1>
+        <button class="menu-btn" id="menu-btn">Menu</button>
+        <button id="download-btn">Download Excel</button>
+    </header>
+
+    <!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">&times;</button>
+    <ul>
+      <li><a href="../dashboard/index.html">Dashboard Page</a></li>
+      <li><a href="../Form responce/index.html">Enrollment Club Form - Responce</a></li>
+       <li><a href="../notice/index.html">Post Notice</a></li>
+       <li><a href="../Registered VITians/index.html">VITian Info</a></li>
+       <li><a href="../VITian location/index.html">VITian Location</a></li>
+    </ul>
+  </nav>
+
+    <main>
+        <section class="search-bar">
+            <input type="text" id="search-input" placeholder="Search by Reg. Number...">
+        </section>
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>Reg. Number</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Reg. Date & Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic data will be injected here -->
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 VITians Information. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="../Registered VITians/scripts.js"></script>
+    <script>
+        document.getElementById('menu-btn').onclick = function () {
+            document.getElementById('sidebar').classList.toggle('active');
+        };
+
+        document.getElementById('close-btn').onclick = function () {
+            document.getElementById('sidebar').classList.remove('active');
+        };
+    </script>
+</body>
+
+</html>

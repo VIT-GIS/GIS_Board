@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VITians Registration Stats</title>
+  <link rel="stylesheet" href="../dashboard/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <img src="../assets/logo.jpeg.jpg" alt="Company Logo" />
+    <h1>Board Dashboard</h1>
+    <button class="menu-btn" id="menu-btn">Menu</button>
+    <button id="download-btn">Download Chart</button>
+    <button id="logoutBtn" class="logout-button">Logout</button>
+  </header>
+
+  <!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">&times;</button>
+    <ul>
+      <li><a href="../dashboard/index.html">Dashboard Page</a></li>
+      <li><a href="../Form responce/index.html">Enrollment Club Form - Responce</a></li>
+       <li><a href="../notice/index.html">Post Notice</a></li>
+       <li><a href="../Registered VITians/index.html">VITian Info</a></li>
+       <li><a href="../VITian location/index.html">VITian Location</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Registration Statistics</h2>
+
+    <!-- Container for Graph and Total Registrations -->
+    <div class="stats-container">
+      <!-- Graph Container -->
+      <div class="graph-container">
+        <canvas id="registrationChart"></canvas>
+      </div>
+
+      <!-- Total Registrations Container -->
+      <div class="total-registrations">
+        <h3>Total Enrolled Members</h3>
+        <p id="total-registrations-count">Loading...</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 VIT GIS. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Firebase SDK and Script -->
+  <script type="module" src="../dashboard/script.js"></script>
+  <script>
+    // Mobile menu and filter functionality
+    document.getElementById('menu-btn').onclick = function () {
+        document.getElementById('sidebar').classList.toggle('active');
+    };
+
+    document.getElementById('close-btn').onclick = function () {
+        document.getElementById('sidebar').classList.remove('active');
+    };
+</script>
+</body>
+</html>

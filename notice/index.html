@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITian Notice Board</title>
+    <link rel="stylesheet" href="../notice/styles.css">
+    <script type="module" src="../notice/scripts.js" defer></script>
+     <link rel="icon" href="../assets/logo (1).png" type="image/png" sizes="32x32">
+</head>
+
+<body>
+    <!-- Spinner for loading -->
+    <div class="spinner" id="spinner">
+        <video autoplay loop muted>
+            <source src="../assets/preloader.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="loading-text">Loading notices...</div>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../assets/logo.jpeg.jpg" alt="Company Logo" class="logo-img">
+                <h1>GeoSpatial</h1>
+            </div>
+            <button class="menu-btn" id="menu-btn">Menu</button>
+        </div>
+    </header>
+
+    <main>
+        <p>Logged in as: <span id="currentUserName"></span></p>
+        <form id="noticeForm">
+            <h2>Notice</h2>
+            <input type="text" id="noticeTitle" placeholder="Title" required />
+            <textarea id="noticeContent" placeholder="Content" required></textarea>
+            <button type="submit" id="noticeSubmitBtn">Post Notice</button>
+        </form>
+        <div id="noticesContainer"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 VITian. All rights reserved.</p>
+    </footer>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <ul>
+            <li><a href="../Dashboard/index.html">Board Members</a></li>
+            <li><a href="../notice/index.html">Notice</a></li>
+            <li><a href="../profile/index.html">Profile</a></li>
+        </ul>
+    </nav>
+
+    <!-- Mobile menu toggle functionality -->
+    <script>
+        document.getElementById('menu-btn').onclick = function () {
+            document.getElementById('sidebar').classList.toggle('active');
+        };
+
+        document.getElementById('close-btn').onclick = function () {
+            document.getElementById('sidebar').classList.remove('active');
+        };
+    </script>
+</body>
+
+</html>
